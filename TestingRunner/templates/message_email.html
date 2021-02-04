@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TestingRunner管理平台报告</title>
+</head>
+<body>
+<div>
+    <includetail>
+        <div style="font:Verdana normal 14px;color:#000;">
+            <div style="position:relative;">
+
+                <style>
+                    .title_bold {
+                        font-family: PingFangSC-Medium, "STHeitiSC-Light", BlinkMacSystemFont, "Helvetica", "lucida Grande", "SCHeiti", "Microsoft YaHei";
+                        font-weight: bold;
+                    }
+
+                    .mail_bg {
+                        background-color: #F5F5F5;
+                    }
+
+                    .mail_cnt {
+                        padding: 60px 0 160px;
+                        max-width: 700px;
+                        margin: auto;
+                        color: #2b2b2b;
+                        -webkit-font-smoothing: antialiased;
+                    }
+
+                    .mail_container {
+                        background-color: #fff;
+                        margin: auto;
+                        max-width: 702px;
+                        border-radius: 2px;
+                    }
+
+                    .eml_content {
+                        padding: 0 50px 30px 50px;
+                        font-family: "Helvetica Neue", "Arial", "PingFang SC", "Hiragino Sans GB", "STHeiti", "Microsoft YaHei", sans-serif;
+                    }
+
+                    .mail_header {
+                        text-align: right;
+                    }
+
+                    .top_line_left {
+                        width: 88%;
+                        height: 3px;
+                        background-color: #2984EF;
+                        float: left;
+                        margin-right: 1px;
+                        border-top-left-radius: 2px;
+                        display: inline-block;
+                    }
+
+                    .top_line_right {
+                        width: 12%;
+                        height: 3px;
+                        background-color: #8BD5FF;
+                        float: right;
+                        border-top-right-radius: 2px;
+                        margin-top: -3px;
+                    }
+
+                    .main_title {
+                        font-size: 16px;
+                        line-height: 24px;
+                    }
+
+                    .main_subtitle {
+                        line-height: 28px;
+                        font-size: 16px;
+                        margin-bottom: 12px;
+                    }
+
+                    .item_level_1 {
+                        margin-top: 60px;
+                    }
+
+                    .item_level_2 {
+                        margin-top: 40px;
+                    }
+
+                    .level_1_title {
+                        font-size: 16px;
+                        line-height: 28px;
+                    }
+
+                    .level_2_title {
+                        font-size: 14px;
+                        line-height: 28px;
+                        font-weight: 600;
+                    }
+
+                    .item_txt {
+                        font-size: 14px;
+                        line-height: 28px;
+                    }
+
+                    .mail_footer {
+                        font-size: 12px;
+                        line-height: 17px;
+                        color: #bebebe;
+                        margin-top: 60px;
+                        letter-spacing: 1px;
+                    }
+
+                    .mail_logo {
+
+                        background-image: url("https://exmail.qq.com/zh_CN/htmledition/images/wwbiz_independent/notify_push/logo_2x.png");
+                        background-size: 34px 24px;
+                        width: 34px;
+                        height: 24px;
+                        background-repeat: no-repeat;
+                        display: inline-block;
+                        margin: 27px 0 20px 0;
+                        clear: left;
+                    }
+
+                    .img_position {
+                        max-width: 100%;
+                    }
+
+                    .normalTxt {
+                        font-size: 14px;
+                        line-height: 24px;
+                        margin-top: 10px;
+                    }
+
+                    @media (max-width: 768px) {
+                        .top_line {
+                            display: none;
+                        }
+
+                        .mail_bg {
+                            background: #fff;
+                        }
+
+                        .mail_cnt {
+                            padding-bottom: 0;
+                            padding-top: 0;
+                        }
+
+                        .eml_content {
+                            padding: 0 12px 50px;
+                        }
+
+                        .phoneFontSizeTitle {
+                            font-size: 18px !important;
+                        }
+
+                        .phoneFontSizeContent {
+                            font-size: 16px !important;
+                            line-height: 28px !important;
+                        }
+
+                        .phoneFontSizeTitleLarge {
+                            font-size: 20px !important;
+                        }
+
+                        .phoneFontSizeTips {
+                            font-size: 14px !important;
+                        }
+                    }
+                </style>
+
+                <div class="qmbox">
+                    <div class="mail_bg">
+                        <div class="mail_cnt">
+
+                            <div class="mail_container">
+
+                                <div class="top_line">
+                                    <div class="top_line_left"></div>
+                                    <div class="top_line_right"></div>
+                                </div>
+
+                                <div class="eml_content">
+
+                                    <div class="mail_header">
+                                        <div class="mail_logo"></div>
+                                    </div>
+
+                                    <div class="">
+
+                                        <p style="font-size: 16px;margin-top:20px;" class="phoneFontSizeTitle">
+                                            你好！
+                                        </p>
+
+                                        <p style="font-size: 16px;margin-top:10px;padding-bottom: 20px" class="title_bold phoneFontSizeTitle">
+                                            你设置的TestingRunner定时任务在当前时间点已结束，报告如下：
+                                        </p>
+
+
+                                        <div style="font-size: 20px;color: #2b2b2b;font-weight: bold;line-height: 28px;" class="phoneFontSizeTitleLarge">
+                                            一、报告概述
+                                        </div>
+
+
+                                        <div style="margin-bottom: 40px;margin-top: 30px;overflow: hidden;">
+                                            <div style="font-size: 16px;line-height: 28px;margin-bottom: 10px;" class="title_bold phoneFontSizeTitle">定时任务名称：{task_name}</div>
+                                            <div style="font-size: 16px;line-height: 28px;margin-bottom: 10px;" class="title_bold phoneFontSizeTitle">定时任务耗时：{duration}</div>
+                                            <div style="font-size: 16px;line-height: 28px;margin-bottom: 10px;" class="title_bold phoneFontSizeTitle">定时成功接口：{pass_count}</div>
+                                            <div style="font-size: 16px;line-height: 28px;margin-bottom: 10px;" class="title_bold phoneFontSizeTitle">定时异常接口：{error_count}</div>
+                                            <div style="font-size: 16px;line-height: 28px;margin-bottom: 10px;" class="title_bold phoneFontSizeTitle">定时失败接口：{fail_count}</div>
+                                            <div style="font-size: 16px;line-height: 28px;margin-bottom: 10px;" class="title_bold phoneFontSizeTitle">定时失败比例：{fail_rate}</div>
+                                             <div style="font-size: 16px;line-height: 28px;margin-bottom: 10px;" class="title_bold phoneFontSizeTitle">定时报告详情：<a href="{report_url}">查看详情</a></div>
+                                            <!--<div style="font-size: 14px;line-height: 24px;" class="phoneFontSizeContent">· 支持查询具体管理员的登录记录。</div>
+                                            <div style="font-size: 14px;line-height: 24px;" class="phoneFontSizeContent">· 支持超级管理员和分级管理员查询。</div>
+                                            <div style="display: inline-block;margin-top: 20px;margin-bottom: 20px;">
+                                                <img class="img_position" src="https://rescdn.qqmail.com/node/wwqy/qymng/style/images/sass/independent/newFeature2020120201b_2x.png" onerror="">
+                                            </div>-->
+                                        </div>
+
+                                    </div>
+
+                                    <div class="mail_footer">
+                                        TestingRunner管理平台
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <!--<![endif]-->
+    </includetail>
+</div>
+
+</body>
+</html>
