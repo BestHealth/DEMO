@@ -47,7 +47,12 @@
                 <p class="desc-p">测试报告总数</p>
             </li>
 
-          
+            <li class="pull-left">
+                <p class="title-p"><i class="iconfont">&#xe74a;</i> &nbsp;{{projectInfo.mock_count}} 个接口</p>
+                <p class="desc-p">MOCK接口总数</p>
+            </li>
+
+
         </ul>
 
 
