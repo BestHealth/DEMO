@@ -241,16 +241,15 @@
                                                 title="异步运行 CASE"
                                                 @click="handleAsyncRunTest(scope.row.id, scope.row.name, scope.row.relation)"
                                             ></el-button>
-                                            <!--
-                                                <el-button
-                                                    type="warning"
-                                                    icon="el-icon-refresh"
-                                                    title="API 同步至用例"
-                                                    circle size="mini"
-                                                    @click="handleSyncCaseStep(scope.row.id)"
-                                                >
-                                                </el-button>
-                                                -->
+
+                                            <el-button
+                                                type="warning"
+                                                icon="el-icon-refresh"
+                                                title="API 同步至用例"
+                                                circle size="mini"
+                                                @click="handleSyncCaseStep(scope.row.id)"
+                                            >
+                                            </el-button>
 
                                             <el-button
                                                 type="danger"
@@ -570,9 +569,9 @@ export default {
         handleSelectionChange(val) {
             this.selectTest = val;
             // 更新是否已经选择Case, 父组件依赖这个属性来判断是否显示移动用例按钮
-            if (this.selectTest.length > 0){
+            if (this.selectTest.length > 0) {
                 this.$emit('update:isSelectCase', true);
-            }else {
+            } else {
                 this.$emit('update:isSelectCase', false);
             }
         },

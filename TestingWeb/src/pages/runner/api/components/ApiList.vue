@@ -259,8 +259,6 @@
                                                 @click="handleRunAPI(scope.row.id)"
                                             ></el-button>
 
-<!--
-
                                             <el-button
                                                 v-show="scope.row.cases.length>0"
                                                 type="warning"
@@ -270,7 +268,6 @@
                                                 @click="handleSyncCaseStep(scope.row.id)"
                                             >
                                             </el-button>
--->
 
                                             <el-button
                                                 type="danger"

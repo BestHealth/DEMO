@@ -20,7 +20,14 @@
                     v-show="dataType === 'json' "
             >
             </editor>
-
+            <editor v-model="textData"
+                    @init="editorInit"
+                    lang="text"
+                    theme="github"
+                    width="100%"
+                    :height="height"
+            >
+            </editor>
         </div>
 
     </div>
@@ -52,14 +59,17 @@
             save: function () {
                 this.$emit('request', {
                     json: this.parseJson(),
+                    text: this.textData,
                 }, {
-                    json_data: this.jsonData
+                    json_data: this.jsonData,
+                    text_data: this.textData,
                 });
             },
 
             request: function () {
                 if (this.request.length !== 0) {
                     this.jsonData = this.request.json_data;
+                    this.textData = this.request.text_data;
                 }
             }
         },
@@ -96,9 +106,13 @@
                 currentIndex: 0,
                 currentRow: '',
                 jsonData: '',
+                textData: '',
                 dataOptions: [{
                     label: 'json',
                     value: 'json',
+                },{
+                    label: 'text',
+                    value: 'text',
                 }],
                 dataType: 'json'
             }
