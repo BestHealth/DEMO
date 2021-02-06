@@ -25,6 +25,7 @@ def get_project_detail(pk):
     variables_count = get_counter(models.Variables, pk=pk)
     report_count = get_counter(models.Report, pk=pk)
     host_count = get_counter(models.HostIP, pk=pk)
+    mock_count = get_counter(models.Mock, pk=pk)
     task_count = celery_models.PeriodicTask.objects.filter(description=pk).count()
 
     return {
@@ -34,7 +35,8 @@ def get_project_detail(pk):
         'config_count': config_count,
         'variables_count': variables_count,
         'report_count': report_count,
-        'host_count': host_count
+        'host_count': host_count,
+        'mock_count': mock_count
     }
 
 
