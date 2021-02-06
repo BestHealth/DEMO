@@ -34,8 +34,10 @@ class Format(object):
                 self.__response_headers = response_headers.get('header')
             response_json = body.get('response')
             self.__response_json = None
+            self.__response_text = None
             if response_json:
                 self.__response_json = response_json.get('json')
+                self.__response_text = response_json.get('text')
             self.__headers = body['header'].pop('header')
             self.__params = body['request']['params'].pop('params')
             self.__data = body['request']['form'].pop('data')
@@ -146,6 +148,8 @@ class Format(object):
 
         if self.__response_json:
             response['response']['json'] = self.__response_json
+        if self.__response_text:
+            response['response']['text'] = self.__response_text
         if self.__response_headers:
             response['response']['header'] = self.__response_headers
         if self.__response_desc:
@@ -378,6 +382,7 @@ class ResponseFront(object):
         if response:
             self.__response_headers = response.get('header')
             self.__response_json = response.get('json')
+            self.__response_text = response.get('text')
         resp_desc = body.get('desc')
 
         if resp_desc:
@@ -396,7 +401,8 @@ class ResponseFront(object):
         response = {
             'resp_header': init,
             'response': {
-                'json_data': ''
+                'json_data': '',
+                'text_data': ''
             }
         }
 
@@ -412,6 +418,8 @@ class ResponseFront(object):
             response['response']['json_data'] = \
                 json.dumps(self.__response_json, indent=4,
                            separators=(',', ': '), ensure_ascii=False)
+        if self.__response_text:
+            response['response']['text_data'] = str(self.__response_text)
 
         self.response_body = response
 
