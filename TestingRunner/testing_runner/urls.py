@@ -1,8 +1,11 @@
 from django.urls import path, re_path
 
-from testing_runner.views import project, api, suite, config, schedule, run, report, mock_client, mock_server
+from testing_runner.views import project, api, suite, config, schedule, run, report, mock_client, mock_server, dashboard
 
 urlpatterns = [
+    # 首页详细信息
+    path('dashboard/', dashboard.possess),
+
     # 项目相关接口地址
     path('project/', project.ProjectView.as_view({
         'get': 'list',

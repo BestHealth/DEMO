@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from '@/pages/home/Home'
+import Dashboard from '@/pages/home/Dashboard'
 import Register from '@/pages/auth/Register'
 import Login from '@/pages/auth/Login'
 import ProjectList from '@/pages/project/ProjectList'
@@ -62,6 +63,15 @@ export default new Router({
                 requireAuth: true
             },
             children: [
+                {
+                    name: 'Dashboard',
+                    path: 'dashboard',
+                    component: Dashboard,
+                    meta: {
+                        title: '系统概述',
+                        requireAuth: true,
+                    }
+                },
                 {
                     name: 'ProjectList',
                     path: 'project_list',

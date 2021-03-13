@@ -5,6 +5,8 @@ import {Message} from 'element-ui';
 
 
 export const baseUrl = "http://localhost:8000";
+//export const baseUrl = "http://118.178.137.44:8081";
+//export const baseUrl = "http://118.178.137.44:6002";
 axios.defaults.withCredentials = true;
 axios.defaults.baseURL = baseUrl;
 
@@ -44,6 +46,10 @@ axios.interceptors.response.use(function (response) {
         })
     }
 });
+
+export const getDashboard = params => {
+    return axios.get('/api/runner/dashboard/').then(res => res.data)
+};
 
 // user api
 export const register = params => {

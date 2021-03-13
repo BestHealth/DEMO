@@ -1,6 +1,7 @@
 import datetime
 
 from testing_runner import models
+from testing_user import models as user_models
 from testing_runner.utils.parser import Format
 from djcelery import models as celery_models
 
@@ -13,6 +14,80 @@ def get_counter(model, pk=None):
         return model.objects.filter(project__id=pk).count()
     else:
         return model.objects.count()
+
+
+def get_day(d):
+    """
+    循环得到天数 7天
+    """
+    for i in range(1, 8):
+        oneday = datetime.timedelta(days=i)
+        day = d - oneday
+        date_to = datetime.datetime(day.year, day.month, day.day)
+        yield str(date_to)[0:10]
+
+
+def get_recently_data(model):
+    """
+    得到报表数据
+    """
+    # 获取当前时间，计算当前日期往前推7天
+    cur_time = datetime.datetime.now()
+    day = get_day(cur_time)
+    day_list = []
+    for obj in day:
+        day_list.append(obj)
+    day_list = day_list[::-1]
+
+    data_recently = []
+    count = 0
+    for day in day_list:
+        recently_count = model.objects.filter(create_time__contains=day).count()
+        detail = {'date': day, 'value': recently_count}
+        data_recently.append(detail)
+        count = count + recently_count
+
+    return data_recently, count
+
+
+def get_possess_detail():
+    """
+    首页详细统计信息
+    """
+    user_count = get_counter(user_models.UserInfo)
+    update_time = datetime.datetime.now().date()
+    token_count = user_models.UserToken.objects.filter(update_time__contains=update_time).count()
+    project_count = get_counter(models.Project)
+    report_count = get_counter(models.Report)
+    case_count = get_counter(models.Case)
+    mock_count = get_counter(models.Mock)
+    task_count = celery_models.PeriodicTask.objects.filter().count()
+
+    user_recently, user_recently_count = get_recently_data(user_models.UserInfo)
+    project_recently, project_recently_count = get_recently_data(models.Project)
+    case_recently, case_recently_count = get_recently_data(models.Case)
+    mock_recently, mock_recently_count = get_recently_data(models.Mock)
+    report_recently, report_recently_count = get_recently_data(models.Report)
+
+    return {
+        'user_count': user_count,
+        'token_count': token_count,
+        'project_count': project_count,
+        'report_count': report_count,
+        'case_count': case_count,
+        'mock_count': mock_count,
+        'task_count': task_count,
+        'user_recently_count': user_recently_count,
+        'user_recently': user_recently,
+        'project_recently_count': project_recently_count,
+        'project_recently': project_recently,
+        'case_recently_count': case_recently_count,
+        'case_recently': case_recently,
+        'mock_recently_count': mock_recently_count,
+        'mock_recently': mock_recently,
+        'report_recently_count': report_recently_count,
+        'report_recently': report_recently,
+    }
 
 
 def get_project_detail(pk):

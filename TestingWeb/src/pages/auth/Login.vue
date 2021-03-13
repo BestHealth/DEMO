@@ -101,13 +101,13 @@
             },
             handleLoginSuccess(resp) {
                 if (resp.success) {
-                    this.$router.push({name: 'ProjectList'});
+                    this.$router.push({name: 'Dashboard'});
                     this.$store.commit("isLogin", resp.token);
                     this.$store.commit("setUser", resp.user);
-                    this.$store.commit("setRouterName",'ProjectList');
+                    this.$store.commit("setRouterName",'Dashboard');
                     this.setLocalValue("token", resp.token);
                     this.setLocalValue("user", resp.user);
-                    this.setLocalValue("routerName", 'ProjectList');
+                    this.setLocalValue("routerName", 'Dashboard');
                 } else {
                     this.$message.error({
                         message: resp.msg,

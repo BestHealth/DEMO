@@ -41,7 +41,7 @@ def parse_message(summary, messageType):
             'fail_rate': fail_rate,
             'report_url': report_url
         }
-    return mail_content
+        return mail_content
 
 
 def send_message(summary: dict, webhook: str):

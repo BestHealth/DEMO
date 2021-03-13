@@ -8,7 +8,7 @@
         active-text-color="#318DF1"
         @select="select"
     >
-        <el-menu-item index="Pressure" disabled>
+        <el-menu-item index="Dashboard">
             <i class="el-icon-s-home"></i>
             <span slot="title">系统概述</span>
         </el-menu-item>
@@ -22,13 +22,13 @@
                 <i class="el-icon-s-operation"></i>
                 <span slot="title">项目概述</span>
             </el-menu-item>
-            <el-menu-item index="ProjectDetail" :disabled="$store.state.routerName === 'ProjectList'">
+            <el-menu-item index="ProjectDetail" :disabled="$store.state.routerName === 'ProjectList' || $store.state.routerName === 'Dashboard'">
                 <i class="el-icon-s-order"></i>
                 <span slot="title">项目详情</span>
             </el-menu-item>
         </el-submenu>
 
-        <el-submenu index="ApiTest" :disabled="$store.state.routerName === 'ProjectList'">
+        <el-submenu index="ApiTest" :disabled="$store.state.routerName === 'ProjectList' || $store.state.routerName === 'Dashboard'">
             <template slot="title">
                 <i class="el-icon-s-ticket"></i>
                 <span slot="title">接口测试</span>
@@ -44,7 +44,7 @@
             <i class="el-icon-s-platform"></i>
             <span slot="title">UI 测试</span>
         </el-menu-item>
-        <el-submenu index="MOCK" :disabled="$store.state.routerName === 'ProjectList'">
+        <el-submenu index="MOCK" :disabled="$store.state.routerName === 'ProjectList' || $store.state.routerName === 'Dashboard'">
             <template slot="title">
                 <i class="el-icon-s-opportunity"></i>
                 <span slot="title">MOCK接口</span>
